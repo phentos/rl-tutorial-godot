@@ -14,8 +14,9 @@ func _ready():
 func _process(_delta):
 	var action: Action = event_handler.get_action()
 	
-	if action is MovementAction:
-		player_grid_pos += action.offset
-		player.position = Grid.grid_to_world(player_grid_pos)
-	elif action is EscapeAction:
-		get_tree().quit()
+	match action:
+		MovementAction:
+			player_grid_pos += action.offset
+			player.position = Grid.grid_to_world(player_grid_pos)
+		EscapeAction:
+			get_tree().quit()
