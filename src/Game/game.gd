@@ -9,14 +9,12 @@ var player_grid_pos := Vector2i.ZERO
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var action: Action = event_handler.get_action()
 	
-	match action:
-		MovementAction:
-			player_grid_pos += action.offset
-			player.position = Grid.grid_to_world(player_grid_pos)
-		EscapeAction:
+	if action is MovementAction:
+		player_grid_pos += action.offset
+		player.position = Grid.grid_to_world(player_grid_pos)
+	elif action is EscapeAction:
 			get_tree().quit()
