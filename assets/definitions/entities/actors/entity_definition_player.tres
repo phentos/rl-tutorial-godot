@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EntityDefinition" load_steps=4 format=3 uid="uid://drr1fyq0tmrwk"]
+
+[ext_resource type="Script" path="res://src/Entities/entity_definition.gd" id="1_sexem"]
+[ext_resource type="Texture2D" uid="uid://iq2p6vjaxpyk" path="res://assets/images/kenney_1-bit-pack/monochrome_packed.png" id="2_rqivt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8ko6"]
+atlas = ExtResource("2_rqivt")
+region = Rect2(400, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_sexem")
+texture = SubResource("AtlasTexture_c8ko6")
+color = Color(1, 1, 1, 1)
