@@ -15,6 +15,15 @@ run/main_scene="res://src/Game/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Handy="*res://src/Utils/handy.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=720
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
