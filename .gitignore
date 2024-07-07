@@ -15,5 +15,5 @@ data_*/
 mono_crash.*.json
 
 # Ignore scripts
-.sh
-.bat
+*.sh
+*.bat
