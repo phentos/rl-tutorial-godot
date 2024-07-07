@@ -10,15 +10,13 @@ const player_definition: EntityDefinition = preload("res://assets/definitions/en
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	var player_start_pos: Vector2i = Grid.world_to_grid(get_viewport_rect().size.floor() / 2)
-	player = Entity.new(player_start_pos, player_definition)
-	
-	var npc := Entity.new(player_start_pos + Vector2i.RIGHT, player_definition)
-	npc.modulate = Color.ORANGE_RED
-	
-	for e in [player, npc]:
-		entities.add_child(e)
+func _ready() -> void:
+	player = Entity.new(Vector2i.ZERO, player_definition)
+	var camera: Camera2D = $Camera2D
+	remove_child(camera)
+	player.add_child(camera)
+	entities.add_child(player)
+	map.generate(player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:

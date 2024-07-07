@@ -17,3 +17,15 @@ static func mapv(f: Callable, ll: Array) -> Array:
 	for el in ll:
 		result.push_back(f.callv(el))
 	return result
+
+## `walk` takes two values and returns an increasing 
+## range between them. Optional third argument to set inclusive
+## e.g. walk(3, 0) and walk(0, 3) -> range(0, 3)
+static func walk(a, b, inclusive : bool = false) -> Array:
+	var l = a if a <= b else b
+	var r = b if l == a else b
+	
+	if inclusive:
+		r += 1
+	
+	return range(l, r)
